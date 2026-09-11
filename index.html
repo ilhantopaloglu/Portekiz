@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portekizce Çalışması</title>
+    <title>🇵🇹 Portekizce Çalışması</title>
 
     <style>
         * {
@@ -13,103 +12,83 @@
 
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             background: #f4f6f8;
             color: #222;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 25px 18px 50px;
+            padding: 20px;
         }
 
-        .header {
+        h1 {
             text-align: center;
             margin-bottom: 25px;
         }
 
-        .header h1 {
-            margin: 5px 0;
-            font-size: 30px;
-        }
-
-        .header p {
-            color: #666;
-            margin-top: 8px;
-        }
-
         .card {
             background: white;
-            border-radius: 18px;
-            padding: 25px;
+            border-radius: 14px;
+            padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .mode-buttons {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
-        .mode-button {
+        .mode-buttons button {
             flex: 1;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            background: white;
+            padding: 14px 10px;
+            border: none;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
+            background: #ddd;
+            font-size: 15px;
             font-weight: bold;
         }
 
-        .mode-button.active {
-            border-color: #1683c5;
-            background: #eaf6fc;
-            color: #126b9f;
+        .mode-buttons button.active {
+            background: #333;
+            color: white;
         }
 
         label {
             display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
             font-weight: bold;
-            margin: 15px 0 7px;
         }
 
         textarea,
-        select {
+        select,
+        input {
             width: 100%;
+            padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 13px;
+            border-radius: 8px;
             font-size: 16px;
-            font-family: inherit;
-            background: white;
         }
 
         textarea {
-            min-height: 110px;
+            min-height: 100px;
             resize: vertical;
-        }
-
-        .row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .row > div {
-            flex: 1;
         }
 
         .main-button {
             width: 100%;
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 18px;
+            padding: 14px;
             border: none;
-            border-radius: 11px;
-            background: #1683c5;
+            border-radius: 9px;
+            background: #006b3c;
             color: white;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -118,111 +97,106 @@
             opacity: 0.9;
         }
 
-        .main-button:disabled {
-            background: #aaa;
-            cursor: wait;
-        }
-
         .result {
             display: none;
+            margin-top: 20px;
         }
 
         .result-box {
-            margin-bottom: 18px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
         }
 
         .result-title {
             font-size: 14px;
             font-weight: bold;
-            color: #777;
+            color: #666;
             margin-bottom: 7px;
         }
 
-        .sentence {
-            font-size: 22px;
+        .result-text {
+            font-size: 20px;
             line-height: 1.5;
         }
 
         .pronunciation {
-            font-size: 19px;
+            font-size: 18px;
             line-height: 1.5;
-            color: #555;
         }
 
-        .portuguese-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .play-button {
-            flex-shrink: 0;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
+        .listen-button {
+            margin-top: 12px;
+            padding: 10px 16px;
             border: none;
-            background: #1683c5;
+            border-radius: 8px;
+            background: #555;
             color: white;
-            font-size: 23px;
             cursor: pointer;
+            font-size: 15px;
         }
 
-        .play-button:hover {
-            transform: scale(1.04);
+        .api-row {
+            display: flex;
+            gap: 10px;
         }
 
-        .new-button {
-            width: 100%;
-            padding: 13px;
-            margin-top: 5px;
-            border: 1px solid #1683c5;
-            border-radius: 10px;
-            background: white;
-            color: #1683c5;
-            font-size: 16px;
+        .api-row input {
+            flex: 1;
+        }
+
+        .save-button {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: white;
             cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #087f23;
+        }
+
+        .error {
+            color: #c62828;
+        }
+
+        .info {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         .loading {
             display: none;
             text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-
-        .error {
-            display: none;
-            background: #fff0f0;
-            color: #b00020;
-            border-radius: 10px;
-            padding: 15px;
             margin-top: 15px;
-        }
-
-        .back {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            text-decoration: none;
+            font-weight: bold;
         }
 
         @media (max-width: 600px) {
-            .row {
-                flex-direction: column;
-                gap: 0;
+            .container {
+                padding: 12px;
             }
 
             .mode-buttons {
                 flex-direction: column;
             }
 
-            .header h1 {
-                font-size: 25px;
+            .api-row {
+                flex-direction: column;
             }
 
-            .sentence {
-                font-size: 20px;
+            .save-button {
+                width: 100%;
             }
         }
     </style>
@@ -232,104 +206,126 @@
 
 <div class="container">
 
-    <div class="header">
-        <h1>🇵🇹 Portekizce Çalışması</h1>
-        <p>Günlük hayatta kullanabileceğiniz Portekiz Portekizcesini öğrenin.</p>
-    </div>
+    <h1>🇵🇹 Portekizce Çalışması</h1>
 
+    <!-- API ANAHTARI -->
     <div class="card">
 
-        <!-- Çalışma modu -->
+        <h3>🔑 OpenAI API Anahtarı</h3>
+
+        <div class="api-row">
+            <input
+                type="password"
+                id="apiKey"
+                placeholder="sk-..."
+            >
+
+            <button class="save-button" onclick="saveApiKey()">
+                Kaydet
+            </button>
+        </div>
+
+        <div id="apiStatus" class="status"></div>
+
+        <p class="info">
+            API anahtarınız bu tarayıcıda saklanır ve OpenAI isteklerinde kullanılır.
+        </p>
+
+    </div>
+
+
+    <!-- MOD SEÇİMİ -->
+    <div class="card">
+
         <div class="mode-buttons">
 
             <button
                 id="manualModeButton"
-                class="mode-button active"
-                onclick="setMode('manual')">
-                ✍️ Ben Cümle Yazacağım
+                class="active"
+                onclick="showMode('manual')"
+            >
+                🇹🇷 Ben Cümle Yazacağım
             </button>
 
             <button
                 id="aiModeButton"
-                class="mode-button"
-                onclick="setMode('ai')">
+                onclick="showMode('ai')"
+            >
                 🤖 YZ Cümle Üretsin
             </button>
 
         </div>
 
 
-        <!-- BEN CÜMLE YAZACAĞIM -->
-        <div id="manualArea">
+        <!-- MANUEL MOD -->
+        <div id="manualMode">
 
             <label for="turkishSentence">
-                Türkçe cümleniz
+                Türkçe cümlenizi yazın:
             </label>
 
             <textarea
                 id="turkishSentence"
-                placeholder="Örneğin: Yarın çocukları okula ben bırakacağım."></textarea>
+                placeholder="Örneğin: Yarın markete gitmem gerekiyor."
+            ></textarea>
 
             <button
-                id="translateButton"
                 class="main-button"
-                onclick="translateSentence()">
+                onclick="translateSentence()"
+            >
                 🇵🇹 Portekizceye Çevir
             </button>
 
         </div>
 
 
-        <!-- YZ CÜMLE ÜRETSİN -->
-        <div id="aiArea" style="display:none;">
+        <!-- AI MOD -->
+        <div id="aiMode" style="display:none;">
 
-            <div class="row">
+            <label for="level">
+                Seviye
+            </label>
 
-                <div>
-                    <label for="level">Seviye</label>
+            <select id="level">
+                <option value="Başlangıç">Başlangıç</option>
+                <option value="Orta">Orta</option>
+                <option value="İleri">İleri</option>
+            </select>
 
-                    <select id="level">
-                        <option value="Başlangıç">Başlangıç</option>
-                        <option value="Orta">Orta</option>
-                        <option value="İleri">İleri</option>
-                    </select>
-                </div>
 
-                <div>
-                    <label for="topic">Konu</label>
+            <label for="topic">
+                Konu
+            </label>
 
-                    <select id="topic">
-                        <option value="Günlük konuşma">Günlük konuşma</option>
-                        <option value="Ev">Ev</option>
-                        <option value="Market ve alışveriş">Market ve alışveriş</option>
-                        <option value="Restoran">Restoran</option>
-                        <option value="Okul">Okul</option>
-                        <option value="Ulaşım">Ulaşım</option>
-                        <option value="Seyahat">Seyahat</option>
-                        <option value="Banka">Banka</option>
-                        <option value="Sağlık">Sağlık</option>
-                        <option value="İş">İş</option>
-                        <option value="Komşular">Komşular</option>
-                        <option value="Şehir hayatı">Şehir hayatı</option>
-                    </select>
-                </div>
+            <select id="topic">
+                <option value="Günlük konuşma">Günlük konuşma</option>
+                <option value="Ev">Ev</option>
+                <option value="Market ve alışveriş">Market ve alışveriş</option>
+                <option value="Restoran">Restoran</option>
+                <option value="Okul">Okul</option>
+                <option value="Ulaşım">Ulaşım</option>
+                <option value="Seyahat">Seyahat</option>
+                <option value="Banka">Banka</option>
+                <option value="Sağlık">Sağlık</option>
+                <option value="İş">İş</option>
+                <option value="Komşular">Komşular</option>
+                <option value="Şehir hayatı">Şehir hayatı</option>
+            </select>
 
-            </div>
 
             <button
-                id="generateButton"
                 class="main-button"
-                onclick="generateSentence()">
+                onclick="generateSentence()"
+            >
                 🤖 Günlük Cümle Üret
             </button>
 
         </div>
 
-        <div id="loading" class="loading">
-            ⏳ Cümle hazırlanıyor...
-        </div>
 
-        <div id="error" class="error"></div>
+        <div id="loading" class="loading">
+            ⏳ YZ düşünüyor...
+        </div>
 
     </div>
 
@@ -337,16 +333,19 @@
     <!-- SONUÇ -->
     <div id="result" class="card result">
 
+        <h3>Sonuç</h3>
+
+
         <div class="result-box">
 
             <div class="result-title">
-                🇹🇷 TÜRKÇE
+                🇹🇷 Türkçe
             </div>
 
             <div
                 id="turkishResult"
-                class="sentence">
-            </div>
+                class="result-text"
+            ></div>
 
         </div>
 
@@ -354,25 +353,20 @@
         <div class="result-box">
 
             <div class="result-title">
-                🇵🇹 PORTUGUÊS — PORTUGAL
+                🇵🇹 Avrupa Portekizcesi
             </div>
 
-            <div class="portuguese-area">
+            <div
+                id="portugueseResult"
+                class="result-text"
+            ></div>
 
-                <div
-                    id="portugueseResult"
-                    class="sentence"
-                    style="flex:1;">
-                </div>
-
-                <button
-                    class="play-button"
-                    onclick="speakPortuguese()"
-                    title="Dinle">
-                    ▶
-                </button>
-
-            </div>
+            <button
+                class="listen-button"
+                onclick="speakPortuguese()"
+            >
+                🔊 Dinle
+            </button>
 
         </div>
 
@@ -380,66 +374,103 @@
         <div class="result-box">
 
             <div class="result-title">
-                🇹🇷 TÜRKÇE OKUNUŞ
+                🗣️ Türkçe Telaffuz
             </div>
 
             <div
                 id="pronunciationResult"
-                class="pronunciation">
-            </div>
+                class="pronunciation"
+            ></div>
 
         </div>
 
-
-        <button
-            id="newSentenceButton"
-            class="new-button"
-            onclick="newSentence()">
-            🔄 Yeni Cümle
-        </button>
-
     </div>
-
-
-    <a href="index.html" class="back">
-        ← Ana Sayfaya Dön
-    </a>
 
 </div>
 
 
 <script>
 
-    /*
-     * ==========================================================
-     * OPENAI API AYARI
-     * ==========================================================
-     *
-     * Buraya kendi API anahtarınızı yazabilirsiniz.
-     *
-     * Ancak gerçek kullanımda API anahtarını HTML içine koymak
-     * güvenli değildir.
-     *
-     * Uzun vadede bu çağrıyı bir backend üzerinden yapmak gerekir.
-     */
+    // =========================================================
+    // API ANAHTARI
+    // =========================================================
 
-    const OPENAI_API_KEY = "BURAYA_OPENAI_API_KEY";
+    window.onload = function () {
+
+        const savedKey = localStorage.getItem("openai_api_key");
+
+        if (savedKey) {
+
+            document.getElementById("apiKey").value = savedKey;
+
+            document.getElementById("apiStatus").innerHTML =
+                "✅ API anahtarı kayıtlı.";
+
+            document.getElementById("apiStatus").className =
+                "status success";
+        }
+
+    };
 
 
-    let currentPortugueseSentence = "";
-    let currentMode = "manual";
+    function saveApiKey() {
+
+        const key =
+            document.getElementById("apiKey").value.trim();
+
+        if (!key) {
+
+            document.getElementById("apiStatus").innerHTML =
+                "❌ Lütfen API anahtarınızı girin.";
+
+            document.getElementById("apiStatus").className =
+                "status error";
+
+            return;
+        }
+
+        localStorage.setItem(
+            "openai_api_key",
+            key
+        );
+
+        document.getElementById("apiStatus").innerHTML =
+            "✅ API anahtarı kaydedildi.";
+
+        document.getElementById("apiStatus").className =
+            "status success";
+    }
 
 
-    // ----------------------------------------------------------
-    // MOD DEĞİŞTİR
-    // ----------------------------------------------------------
+    function getApiKey() {
 
-    function setMode(mode) {
+        const key =
+            localStorage.getItem("openai_api_key");
 
-        currentMode = mode;
+        if (!key) {
 
-        const manualArea = document.getElementById("manualArea");
-        const aiArea = document.getElementById("aiArea");
+            alert(
+                "Önce OpenAI API anahtarınızı girip Kaydet butonuna basmalısınız."
+            );
+
+            return null;
+        }
+
+        return key;
+    }
+
+
+    // =========================================================
+    // MOD DEĞİŞTİRME
+    // =========================================================
+
+    function showMode(mode) {
+
+        const manual =
+            document.getElementById("manualMode");
+
+        const ai =
+            document.getElementById("aiMode");
 
         const manualButton =
             document.getElementById("manualModeButton");
@@ -450,279 +481,441 @@
 
         if (mode === "manual") {
 
-            manualArea.style.display = "block";
-            aiArea.style.display = "none";
+            manual.style.display = "block";
+            ai.style.display = "none";
 
             manualButton.classList.add("active");
             aiButton.classList.remove("active");
 
         } else {
 
-            manualArea.style.display = "none";
-            aiArea.style.display = "block";
+            manual.style.display = "none";
+            ai.style.display = "block";
 
             manualButton.classList.remove("active");
             aiButton.classList.add("active");
 
         }
 
-        hideError();
     }
 
 
-    // ----------------------------------------------------------
+    // =========================================================
+    // OPENAI İSTEĞİ
+    // =========================================================
+
+    async function askOpenAI(prompt) {
+
+        const apiKey = getApiKey();
+
+        if (!apiKey) {
+            return null;
+        }
+
+
+        const response = await fetch(
+            "https://api.openai.com/v1/chat/completions",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + apiKey
+                },
+
+                body: JSON.stringify({
+
+                    model: "gpt-4o-mini",
+
+                    messages: [
+                        {
+                            role: "system",
+                            content:
+                                "Sen Avrupa Portekizcesi (European Portuguese / PT-PT) konusunda uzman bir dil öğretmenisin. Brezilya Portekizcesi kullanma."
+                        },
+                        {
+                            role: "user",
+                            content: prompt
+                        }
+                    ],
+
+                    temperature: 0.7
+
+                })
+            }
+        );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+            console.error(errorText);
+
+            throw new Error(
+                "OpenAI API hatası: " +
+                response.status
+            );
+        }
+
+
+        const data =
+            await response.json();
+
+
+        return data.choices[0].message.content;
+    }
+
+
+    // =========================================================
     // TÜRKÇE CÜMLEYİ ÇEVİR
-    // ----------------------------------------------------------
+    // =========================================================
 
     async function translateSentence() {
 
         const sentence =
-            document.getElementById("turkishSentence").value.trim();
+            document
+                .getElementById("turkishSentence")
+                .value
+                .trim();
 
 
         if (!sentence) {
 
-            showError("Lütfen önce bir Türkçe cümle yazın.");
+            alert("Lütfen bir Türkçe cümle yazın.");
+
             return;
         }
 
 
         const prompt = `
-Sen Avrupa Portekizcesi (Português Europeu / PT-PT) konusunda
-uzman bir dil öğretmenisin.
 
-Aşağıdaki Türkçe cümleyi Portekiz Portekizcesine çevir.
-
-Brezilya Portekizcesi KULLANMA.
-
-Ayrıca Türkçe konuşan bir öğrencinin Portekizce cümleyi
-nasıl okuyabileceğini gösteren doğal ve anlaşılır bir
-Türkçe fonetik okunuş yaz.
-
-Türkçe okunuşta Portekiz Portekizcesinin gerçek telaffuzuna
-mümkün olduğunca yaklaş.
-
-Sadece aşağıdaki JSON formatında cevap ver:
-
-{
-  "turkish": "...",
-  "portuguese": "...",
-  "pronunciation": "..."
-}
+Aşağıdaki Türkçe cümleyi Avrupa Portekizcesine (PT-PT) çevir.
 
 Türkçe cümle:
-${sentence}
+"${sentence}"
+
+Yanıtını TAM OLARAK şu formatta ver:
+
+PORTUGUESE:
+[Avrupa Portekizcesi çeviri]
+
+PRONUNCIATION:
+[Türkçe konuşan bir kişinin okuyabileceği şekilde yaklaşık Türkçe fonetik telaffuz]
+
+Kurallar:
+- Kesinlikle Avrupa Portekizcesi kullan.
+- Brezilya Portekizcesi kullanma.
+- Çeviri doğal ve günlük kullanımda uygun olsun.
+- Telaffuz mümkün olduğunca gerçek PT-PT telaffuzuna yakın olsun.
+- Açıklama ekleme.
 `;
-
-        await askAI(prompt);
-    }
-
-
-    // ----------------------------------------------------------
-    // YZ CÜMLE ÜRETSİN
-    // ----------------------------------------------------------
-
-    async function generateSentence() {
-
-        const level =
-            document.getElementById("level").value;
-
-        const topic =
-            document.getElementById("topic").value;
-
-
-        const prompt = `
-Sen Avrupa Portekizcesi (Português Europeu / PT-PT)
-öğreten bir dil öğretmenisin.
-
-Türkçe konuşan bir öğrenci için günlük hayatta gerçekten
-kullanılabilecek BİR Türkçe cümle oluştur.
-
-Seviye: ${level}
-Konu: ${topic}
-
-Cümle doğal, konuşma dilinde ve gerçek hayatta kullanılabilir
-olsun.
-
-Ardından cümleyi Avrupa Portekizcesine (PT-PT) çevir.
-
-Brezilya Portekizcesi kullanma.
-
-Son olarak Portekiz Portekizcesindeki telaffuza mümkün olduğunca
-yakın bir Türkçe fonetik okunuş oluştur.
-
-Sadece aşağıdaki JSON formatında cevap ver:
-
-{
-  "turkish": "...",
-  "portuguese": "...",
-  "pronunciation": "..."
-}
-`;
-
-        await askAI(prompt);
-    }
-
-
-    // ----------------------------------------------------------
-    // OPENAI ÇAĞRISI
-    // ----------------------------------------------------------
-
-    async function askAI(prompt) {
-
-        showLoading(true);
-        hideError();
-
-        const button1 =
-            document.getElementById("translateButton");
-
-        const button2 =
-            document.getElementById("generateButton");
-
-        button1.disabled = true;
-        button2.disabled = true;
 
 
         try {
 
-            if (
-                !OPENAI_API_KEY ||
-                OPENAI_API_KEY === "BURAYA_OPENAI_API_KEY"
-            ) {
-                throw new Error(
-                    "OpenAI API anahtarı tanımlanmamış."
-                );
-            }
-
-
-            const response = await fetch(
-                "https://api.openai.com/v1/chat/completions",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization":
-                            "Bearer " + OPENAI_API_KEY
-                    },
-
-                    body: JSON.stringify({
-
-                        model: "gpt-4o-mini",
-
-                        messages: [
-
-                            {
-                                role: "system",
-                                content:
-                                    "You are an expert European Portuguese teacher."
-                            },
-
-                            {
-                                role: "user",
-                                content: prompt
-                            }
-
-                        ],
-
-                        temperature: 0.7,
-
-                        response_format: {
-                            type: "json_object"
-                        }
-
-                    })
-                }
-            );
-
-
-            if (!response.ok) {
-
-                const errorData =
-                    await response.json();
-
-                throw new Error(
-                    errorData?.error?.message ||
-                    "OpenAI API hatası."
-                );
-            }
-
-
-            const data =
-                await response.json();
-
-
-            const content =
-                data.choices[0].message.content;
+            showLoading(true);
 
 
             const result =
-                JSON.parse(content);
+                await askOpenAI(prompt);
 
 
-            showResult(result);
+            if (!result) {
+                return;
+            }
 
-        }
 
-        catch (error) {
+            processResult(
+                sentence,
+                result
+            );
 
-            console.error(error);
 
-            showError(
+        } catch (error) {
+
+            alert(
                 "Bir hata oluştu: " +
                 error.message
             );
 
-        }
-
-        finally {
+        } finally {
 
             showLoading(false);
 
-            button1.disabled = false;
-            button2.disabled = false;
         }
+
     }
 
 
-    // ----------------------------------------------------------
-    // SONUCU GÖSTER
-    // ----------------------------------------------------------
+    // =========================================================
+    // YZ CÜMLE ÜRET
+    // =========================================================
 
-    function showResult(data) {
+    async function generateSentence() {
 
-        document.getElementById("turkishResult").textContent =
-            data.turkish || "";
-
-        document.getElementById("portugueseResult").textContent =
-            data.portuguese || "";
-
-        document.getElementById("pronunciationResult").textContent =
-            data.pronunciation || "";
+        const level =
+            document
+                .getElementById("level")
+                .value;
 
 
-        currentPortugueseSentence =
-            data.portuguese || "";
+        const topic =
+            document
+                .getElementById("topic")
+                .value;
 
 
-        document.getElementById("result").style.display =
-            "block";
+        const prompt = `
+
+Avrupa Portekizcesi (PT-PT) öğrenen bir Türk için
+günlük hayatta gerçekten kullanılabilecek bir cümle oluştur.
+
+Seviye:
+${level}
+
+Konu:
+${topic}
+
+Önce Türkçe cümleyi oluştur.
+Sonra bu cümleyi doğal Avrupa Portekizcesine çevir.
+Son olarak Türkçe konuşan bir öğrencinin okuyabileceği
+yaklaşık Türkçe fonetik telaffuzunu yaz.
+
+Yanıtını TAM OLARAK şu formatta ver:
+
+TURKISH:
+[Türkçe cümle]
+
+PORTUGUESE:
+[Avrupa Portekizcesi cümle]
+
+PRONUNCIATION:
+[Türkçe fonetik telaffuz]
+
+Kurallar:
+- Kesinlikle Avrupa Portekizcesi kullan.
+- Brezilya Portekizcesi kullanma.
+- Cümle günlük hayatta gerçekten kullanılabilir olsun.
+- Seçilen seviyeye uygun olsun.
+- Gereksiz açıklama yapma.
+`;
 
 
-        window.scrollTo({
-            top: document.getElementById("result").offsetTop - 20,
-            behavior: "smooth"
-        });
+        try {
+
+            showLoading(true);
+
+
+            const result =
+                await askOpenAI(prompt);
+
+
+            if (!result) {
+                return;
+            }
+
+
+            processGeneratedResult(result);
+
+
+        } catch (error) {
+
+            alert(
+                "Bir hata oluştu: " +
+                error.message
+            );
+
+        } finally {
+
+            showLoading(false);
+
+        }
+
     }
 
 
-    // ----------------------------------------------------------
-    // PORTUGİZCEYİ SESLENDİR
-    // ----------------------------------------------------------
+    // =========================================================
+    // MANUEL SONUCU İŞLE
+    // =========================================================
+
+    function processResult(
+        turkish,
+        result
+    ) {
+
+        const portuguese =
+            extractValue(
+                result,
+                "PORTUGUESE:"
+            );
+
+
+        const pronunciation =
+            extractValue(
+                result,
+                "PRONUNCIATION:"
+            );
+
+
+        document.getElementById(
+            "turkishResult"
+        ).textContent = turkish;
+
+
+        document.getElementById(
+            "portugueseResult"
+        ).textContent = portuguese;
+
+
+        document.getElementById(
+            "pronunciationResult"
+        ).textContent = pronunciation;
+
+
+        document.getElementById(
+            "result"
+        ).style.display = "block";
+
+    }
+
+
+    // =========================================================
+    // YZ SONUCUNU İŞLE
+    // =========================================================
+
+    function processGeneratedResult(result) {
+
+        const turkish =
+            extractValue(
+                result,
+                "TURKISH:"
+            );
+
+
+        const portuguese =
+            extractValue(
+                result,
+                "PORTUGUESE:"
+            );
+
+
+        const pronunciation =
+            extractValue(
+                result,
+                "PRONUNCIATION:"
+            );
+
+
+        document.getElementById(
+            "turkishResult"
+        ).textContent = turkish;
+
+
+        document.getElementById(
+            "portugueseResult"
+        ).textContent = portuguese;
+
+
+        document.getElementById(
+            "pronunciationResult"
+        ).textContent = pronunciation;
+
+
+        document.getElementById(
+            "result"
+        ).style.display = "block";
+
+    }
+
+
+    // =========================================================
+    // METİNDEN BÖLÜM ÇIKAR
+    // =========================================================
+
+    function extractValue(
+        text,
+        label
+    ) {
+
+        const start =
+            text.indexOf(label);
+
+
+        if (start === -1) {
+            return "";
+        }
+
+
+        const valueStart =
+            start + label.length;
+
+
+        let nextLabel =
+            text.indexOf(
+                "\n",
+                valueStart
+            );
+
+
+        if (label === "TURKISH:") {
+
+            nextLabel =
+                text.indexOf(
+                    "PORTUGUESE:",
+                    valueStart
+                );
+
+        }
+
+
+        if (label === "PORTUGUESE:") {
+
+            nextLabel =
+                text.indexOf(
+                    "PRONUNCIATION:",
+                    valueStart
+                );
+
+        }
+
+
+        if (nextLabel === -1) {
+
+            return text
+                .substring(valueStart)
+                .trim();
+
+        }
+
+
+        return text
+            .substring(
+                valueStart,
+                nextLabel
+            )
+            .trim();
+
+    }
+
+
+    // =========================================================
+    // SESLENDİRME
+    // =========================================================
 
     function speakPortuguese() {
 
-        if (!currentPortugueseSentence) {
+        const text =
+            document
+                .getElementById(
+                    "portugueseResult"
+                )
+                .textContent
+                .trim();
+
+
+        if (!text) {
             return;
         }
 
@@ -731,102 +924,37 @@ Sadece aşağıdaki JSON formatında cevap ver:
 
 
         const utterance =
-            new SpeechSynthesisUtterance(
-                currentPortugueseSentence
-            );
+            new SpeechSynthesisUtterance(text);
 
 
-        /*
-         * Avrupa Portekizcesi
-         */
+        // Avrupa Portekizcesi
         utterance.lang = "pt-PT";
 
+        // Öğrenme için biraz yavaş
         utterance.rate = 0.85;
+
         utterance.pitch = 1;
 
 
         window.speechSynthesis.speak(
             utterance
         );
+
     }
 
 
-    // ----------------------------------------------------------
-    // YENİ CÜMLE
-    // ----------------------------------------------------------
-
-    function newSentence() {
-
-        document.getElementById("result").style.display =
-            "none";
-
-
-        if (currentMode === "manual") {
-
-            document.getElementById("turkishSentence").value =
-                "";
-
-            document.getElementById("turkishSentence").focus();
-
-        } else {
-
-            generateSentence();
-
-        }
-    }
-
-
-    // ----------------------------------------------------------
+    // =========================================================
     // LOADING
-    // ----------------------------------------------------------
+    // =========================================================
 
     function showLoading(show) {
 
-        document.getElementById("loading").style.display =
+        document.getElementById(
+            "loading"
+        ).style.display =
             show ? "block" : "none";
+
     }
-
-
-    // ----------------------------------------------------------
-    // ERROR
-    // ----------------------------------------------------------
-
-    function showError(message) {
-
-        const error =
-            document.getElementById("error");
-
-        error.textContent = message;
-        error.style.display = "block";
-    }
-
-
-    function hideError() {
-
-        document.getElementById("error").style.display =
-            "none";
-    }
-
-
-    // ----------------------------------------------------------
-    // ENTER / CTRL+ENTER
-    // ----------------------------------------------------------
-
-    document
-        .getElementById("turkishSentence")
-        .addEventListener("keydown", function(event) {
-
-            if (
-                event.key === "Enter" &&
-                (event.ctrlKey || event.metaKey)
-            ) {
-
-                event.preventDefault();
-
-                translateSentence();
-            }
-
-        });
 
 </script>
 
